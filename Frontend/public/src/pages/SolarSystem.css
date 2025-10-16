@@ -1,0 +1,124 @@
+:root {
+  --accent: linear-gradient(90deg,#7c3aed,#8b5cf6 60%, #06b6d4);
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  background: radial-gradient(ellipse at center, #020617 0%, #000000 70%);
+  color: #fff;
+  font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* full-screen */
+.solar-page { position: fixed; inset: 0; width: 100%; height: 100%; overflow: hidden; }
+.solar-canvas { width: 100% !important; height: 100% !important; background: transparent; }
+
+/* overlay UI */
+.ui-top-left {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 40;
+  backdrop-filter: blur(6px);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 12px 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+  min-width: 260px;
+}
+.ui-title {
+  font-weight: 800;              /* Bolder text */
+  font-size: 32px;               /* Much larger heading */
+  letter-spacing: 1px;           /* Slight spacing for elegance */
+  background: var(--accent);     /* Your purple gradient */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;     /* Optional: makes it grand */
+}
+
+.ui-sub {
+  margin-top: 6px;
+  font-size: 12px;               /* Smaller subtitle */
+  font-weight: 400;
+  opacity: 0.8;
+  color: #e0e0e0;
+  letter-spacing: 0.5px;
+}
+
+
+/* planet labels - larger + glow */
+.planet-label {
+  pointer-events: none;
+  transform: translateY(-20px);
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(0,0,0,0.55), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.04);
+  font-size: 15px;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0,0,0,0.85), 0 0 10px rgba(255,255,255,0.06);
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  transition: transform 260ms ease, opacity 260ms ease;
+}
+
+/* subtle orbit ring glow */
+.meshBasicMaterial.orbit-ring { filter: drop-shadow(0 0 6px rgba(80,140,255,0.12)); }
+
+@media (max-width: 600px) {
+  .ui-top-left { left: 12px; top: 12px; padding: 10px; min-width: 180px; }
+  .ui-title { font-size: 14px; }
+  .planet-label { font-size: 13px; padding: 5px 10px; }
+}
+
+/* Centered top heading */
+.ui-top-left {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 40;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 26px;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  min-width: 300px;
+}
+
+/* Main heading */
+.ui-title {
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #a855f7, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subheading */
+.ui-sub {
+  margin-top: 8px;
+  font-size: 15px;
+  opacity: 0.9;
+  color: #e5e7eb;
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .ui-top-left {
+    top: 20px;
+    padding: 10px 18px;
+    min-width: 220px;
+  }
+  .ui-title {
+    font-size: 18px;
+  }
+  .ui-sub {
+    font-size: 13px;
+  }
+}
